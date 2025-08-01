@@ -19,6 +19,8 @@ import (
 	"github.com/emersion/go-smtp"
 )
 
+// TODO store requests that could not be sent
+
 // handle request
 // redirect to receiver, based on sport entered
 // config: redirect url, mail (server, port, user, password, subject prefix), receiver email, turnstile private token
