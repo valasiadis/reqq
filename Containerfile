@@ -1,4 +1,4 @@
-FROM docker.io/alpine:3.22.1
+FROM docker.io/busybox:1.37.0-glibc
 
 LABEL org.opencontainers.image.source="https://github.com/valasiadis/reqq"
 LABEL org.opencontainers.image.title="reqq"

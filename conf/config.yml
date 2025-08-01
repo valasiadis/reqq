@@ -11,7 +11,7 @@ mail:
 
 turnstile:
   enforce_validation: true
-  secret: 0x4AAAAAABgi8DGAVbGsn6SPwJHGBEgzJ6c
+  secret: <cloudflare token here>
 
 redirect:
   success: https://example.com/begin/success
