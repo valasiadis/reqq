@@ -29,6 +29,7 @@ jobs:
         run: make build-binary
       # may also use `make build-image` for that
       - name: Build reqq OCI image
+        id: build-image
         uses: redhat-actions/buildah-build@v2.13
         with:
           image: reqq
