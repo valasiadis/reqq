@@ -1,0 +1,32 @@
+# build the binary
+# build the image
+
+# make a package, publish it to ghcr
+# use release as tag name
+
+name: build-release
+run-name: Building reqq version ${{ github.event.release.tag_name }}
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.24.5'
+      - name: Build reqq binary
+        run: make build-binary
+      # may also use make build-image for that
+      - name: Build reqq OCI image
+        uses: redhat-actions/buildah-build@v2.13
+        with:
+          image: reqq
+          tags: ${{ github.event.release.tag_name }}
+          containerfiles: |
+            ./Containerfile
