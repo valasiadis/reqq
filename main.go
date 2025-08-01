@@ -99,14 +99,14 @@ func main() {
 
 	// init turnstile
 	logger.Println("initializing Cloudflare Turnstile service...")
-	turnstileSrv := turnstile.New(turnstile.Config{
+	turnstileSrv = turnstile.New(turnstile.Config{
 		Secret: config.Turnstile.Secret,
 	})
 
 	// init template
 	logger.Println("reading config location from MAIL_TEMPLATE_FILE environment variable...")
 	tmplPath := os.Getenv("MAIL_TEMPLATE_FILE")
-	mailTmpl, err := template.New(path.Base(tmplPath)).ParseFiles(tmplPath)
+	mailTmpl, err = template.New(path.Base(tmplPath)).ParseFiles(tmplPath)
 	if err != nil {
 		errExit("failed to parse mail template: %s", err)
 	}

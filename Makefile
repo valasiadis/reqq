@@ -1,3 +1,5 @@
+VERSION = $(cat ./version)
+
 SRCS = $(shell git ls-files '*.go')
 
 BIN_NAME := reqq
@@ -20,7 +22,7 @@ dist:
 .PHONY: build-image
 #? build-image: Build an OCI image
 build-image:
-	buildah build -t reqq .
+	buildah build -t reqq:$(VERSION) .
 
 .PHONY: build-binary
 #? build-image: Build the application
