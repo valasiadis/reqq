@@ -46,4 +46,4 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ github.token }}
       - name: Print image url
-        run: echo "Image pushed to ${{ steps.push-to-quay.outputs.registry-paths }}"
+        run: echo "Image pushed to ${{ steps.push-to-ghcr.outputs.registry-paths }}"
