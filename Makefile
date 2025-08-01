@@ -35,7 +35,7 @@ fmt:
 .PHONY: clean
 #? clean: Clean up build directories and temporary files
 clean:
-  rm -rf ./dist/
+	rm -rf ./dist/
 
 .PHONY: help
 #? help: Get more info on make commands
