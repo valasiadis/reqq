@@ -18,4 +18,4 @@ USER 1000:1000
 ADD --chown=1000:1000 --chmod=755 ./dist/reqq /usr/bin/reqq
 ADD --chown=1000:1000 --chmod=755 ./conf/ /config/
 
-ENTRYPOINT ["/usr/bin/reqq"]
+ENTRYPOINT ["reqq"]
