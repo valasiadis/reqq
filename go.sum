@@ -1,5 +1,9 @@
 github.com/9ssi7/turnstile v1.0.0 h1:MDH8pXAbStCeH9Yul1MOIp0e4YKctpUXvcPEqKEUyZs=
 github.com/9ssi7/turnstile v1.0.0/go.mod h1:R37Sy9c6VdYzQc0jr/hUojAdn3bYpeKaAoo9nUSqVSI=
+github.com/emersion/go-sasl v0.0.0-20241020182733-b788ff22d5a6 h1:oP4q0fw+fOSWn3DfFi4EXdT+B+gTtzx8GC9xsc26Znk=
+github.com/emersion/go-sasl v0.0.0-20241020182733-b788ff22d5a6/go.mod h1:iL2twTeMvZnrg54ZoPDNfJaJaqy0xIQFuBdrLsmspwQ=
+github.com/emersion/go-smtp v0.23.0 h1:ZiriTOTK7sKep7jbWqgB5kPsiBp5wnE5auEMnwRMnGc=
+github.com/emersion/go-smtp v0.23.0/go.mod h1:ZtRRkbTyp2XTHCA+BmyTFTrj8xY4I+b4McvHxCU2gsQ=
 github.com/google/go-cmp v0.6.0/go.mod h1:17dUlkBOakJ0+DkrSSNjCkIjxS6bF9zb3elmeNGIjoY=
 github.com/wneessen/go-mail v0.6.2 h1:c6V7c8D2mz868z9WJ+8zDKtUyLfZ1++uAZmo2GRFji8=
 github.com/wneessen/go-mail v0.6.2/go.mod h1:L/PYjPK3/2ZlNb2/FjEBIn9n1rUWjW+Toy531oVmeb4=
