@@ -4,8 +4,8 @@
 # make a package, publish it to ghcr
 # use release as tag name
 
-name: build-release
-run-name: Building reqq version ${{ github.event.release.tag_name }}
+name: build-and-publish-release
+run-name: Build and publish reqq ${{ github.event.release.tag_name }} image
 
 on:
   release:
@@ -22,11 +22,34 @@ jobs:
           go-version: '1.24.5'
       - name: Build reqq binary
         run: make build-binary
-      # may also use make build-image for that
+  build-and-publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      attestations: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      # may also use `make build-image` for that
       - name: Build reqq OCI image
         uses: redhat-actions/buildah-build@v2.13
         with:
           image: reqq
-          tags: ${{ github.event.release.tag_name }}
+          tags: reqq:${{ github.event.release.tag_name }} reqq:${{ github.sha }}
           containerfiles: |
             ./Containerfile
+      - name: Push to GHCR
+        id: push-to-ghcr
+        uses: redhat-actions/push-to-registry@v2.8
+        with:
+          image: ${{ steps.build-image.outputs.image }}
+          tags: ${{ steps.build-image.outputs.tags }}
+          registry: ghcr.io/valasiadis
+          username: valasiadis
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Print image url
+        run: echo "Image pushed to ${{ steps.push-to-quay.outputs.registry-paths }}"
+
+
+
