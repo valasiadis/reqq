@@ -12,7 +12,12 @@ on:
     types: [published]
 
 jobs:
-  build:
+  build-and-publish:
+    # permissions:
+    #   contents: read
+    #   packages: write
+    #   attestations: write
+    #   id-token: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,15 +27,6 @@ jobs:
           go-version: '1.24.5'
       - name: Build reqq binary
         run: make build-binary
-  build-and-publish:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-      attestations: write
-      id-token: write
-    steps:
-      - uses: actions/checkout@v4
       # may also use `make build-image` for that
       - name: Build reqq OCI image
         uses: redhat-actions/buildah-build@v2.13
