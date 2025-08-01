@@ -49,7 +49,7 @@ func (req *Req) display() string {
 	if err != nil {
 		return ""
 	}
-	return fmt.Sprintf(string(d))
+	return fmt.Sprint(string(d))
 }
 
 func fromHttpReq(req *http.Request, config *Config) (*Req, error) {
