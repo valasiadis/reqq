@@ -1,0 +1,29 @@
+listen_address: 0.0.0.0:8080
+
+mail:
+  server: mail.example.com
+  port: 465
+  user: reqq@example.com
+  password: SuperS3cret27
+  # TODO evaluate based on the port?
+  # tls: true
+  prefix: "Request: "
+
+turnstile:
+  enforce_validation: true
+  secret: 0x4AAAAAABgi8DGAVbGsn6SPwJHGBEgzJ6c
+
+redirect:
+  success: https://example.com/begin/success
+  error:
+    generic: https://example.com/begin/errors/generic
+    turnstile: https://example.com/begin/errors/turnstile
+    mail: https://example.com/begin/errors/mail
+
+departments:
+  archery:
+    display_name: Bogensport
+    email: archery@example.com
+  airguns:
+    display_name: Luftdruckwaffen
+    email: airguns@example.com
